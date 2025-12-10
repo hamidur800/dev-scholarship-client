@@ -21,6 +21,9 @@ import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import Analytics from "../Pages/Dashboard/Analytics";
 import ManageApplications from "../Pages/Dashboard/ManageApplications";
 import AllReviews from "../Pages/Dashboard/AllReviews";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
+import ModeratorDashboard from "../Pages/Dashboard/ModeratorDashboard";
+import RoleDashboard from "../Components/RoleDashboard";
 
 const router = createBrowserRouter([
   {
@@ -87,7 +90,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <StudentDashboard />,
+          element: <RoleDashboard />,
       },
       {
         path: "/dashboard/profile",

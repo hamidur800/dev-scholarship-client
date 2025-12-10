@@ -39,6 +39,7 @@ const DashboardLayout = () => {
   const isActive = (path) => location.pathname === path;
 
   const adminLinks = [
+    { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
     { path: "/dashboard/add-scholarship", label: "Add Scholarship", icon: <FaPlus /> },
     { path: "/dashboard/manage-scholarships", label: "Manage Scholarships", icon: <FaList /> },
@@ -47,12 +48,14 @@ const DashboardLayout = () => {
   ];
 
   const moderatorLinks = [
+    { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
     { path: "/dashboard/manage-applications", label: "Manage Applications", icon: <FaFileAlt /> },
     { path: "/dashboard/all-reviews", label: "All Reviews", icon: <FaComments /> },
   ];
 
   const studentLinks = [
+    { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
     { path: "/dashboard/my-applications", label: "My Applications", icon: <FaFileAlt /> },
     { path: "/dashboard/my-reviews", label: "My Reviews", icon: <FaComments /> },
