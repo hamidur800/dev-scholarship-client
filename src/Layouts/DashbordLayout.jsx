@@ -32,9 +32,9 @@ const DashboardLayout = () => {
     }
   };
 
-  const isAdmin = user?.role === "Admin";
-  const isModerator = user?.role === "Moderator";
-  const isStudent = user?.role === "Student";
+  const isAdmin = user?.role?.toLowerCase() === "admin";
+  const isModerator = user?.role?.toLowerCase() === "moderator";
+  const isStudent = user?.role?.toLowerCase() === "student" || !user?.role;
 
   const isActive = (path) => location.pathname === path;
 
@@ -48,8 +48,8 @@ const DashboardLayout = () => {
 
   const moderatorLinks = [
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
-    { path: "/dashboard/applications", label: "Manage Applications", icon: <FaFileAlt /> },
-    { path: "/dashboard/reviews", label: "All Reviews", icon: <FaComments /> },
+    { path: "/dashboard/manage-applications", label: "Manage Applications", icon: <FaFileAlt /> },
+    { path: "/dashboard/all-reviews", label: "All Reviews", icon: <FaComments /> },
   ];
 
   const studentLinks = [

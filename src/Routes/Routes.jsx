@@ -15,6 +15,12 @@ import DashboardProfile from "../Pages/Dashboard/DashboardProfile";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard";
 import MyApplications from "../Pages/Dashboard/MyApplications";
 import MyReviews from "../Pages/Dashboard/MyReviews";
+import AddScholarship from "../Pages/Dashboard/AddScholarship";
+import ManageScholarships from "../Pages/Dashboard/ManageScholarships";
+import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import Analytics from "../Pages/Dashboard/Analytics";
+import ManageApplications from "../Pages/Dashboard/ManageApplications";
+import AllReviews from "../Pages/Dashboard/AllReviews";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +101,30 @@ const router = createBrowserRouter([
         path: "/dashboard/my-reviews",
         element: <MyReviews />,
       },
+        {
+          path: "/dashboard/add-scholarship",
+          element: <AddScholarship />,
+        },
+        {
+          path: "/dashboard/manage-scholarships",
+          element: <ManageScholarships />,
+        },
+        {
+          path: "/dashboard/manage-users",
+          element: <ManageUsers />,
+        },
+        {
+          path: "/dashboard/analytics",
+          element: <Analytics />,
+        },
+        {
+          path: "/dashboard/manage-applications",
+          element: <ManageApplications />,
+        },
+        {
+          path: "/dashboard/all-reviews",
+          element: <AllReviews />,
+        },
     ],
   },
 ]);
