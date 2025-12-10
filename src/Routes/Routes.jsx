@@ -13,6 +13,8 @@ import PaymentFailed from "../Pages/PaymentFailed/PaymentFailed";
 import ProtectedRoute from "../Components/ProtectedRoute";
 import DashboardProfile from "../Pages/Dashboard/DashboardProfile";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard";
+import MyApplications from "../Pages/Dashboard/MyApplications";
+import MyReviews from "../Pages/Dashboard/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -85,7 +87,14 @@ const router = createBrowserRouter([
         path: "/dashboard/profile",
         element: <DashboardProfile />,
       },
-      // More dashboard routes will be added here
+      {
+        path: "/dashboard/my-applications",
+        element: <MyApplications />,
+      },
+      {
+        path: "/dashboard/my-reviews",
+        element: <MyReviews />,
+      },
     ],
   },
 ]);
