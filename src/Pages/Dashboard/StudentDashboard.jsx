@@ -169,6 +169,18 @@ const StudentDashboard = () => {
             </div>
           </Link>
         </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <Link to="/dashboard/add-review" className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer">
+            <div className="card-body">
+              <h2 className="card-title text-lg">Write a Review</h2>
+              <p className="text-base-content/70">Share your scholarship experience</p>
+              <div className="card-actions justify-end">
+                <div className="badge badge-success">Go</div>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
       </motion.div>
 
       {/* Recent Applications */}
