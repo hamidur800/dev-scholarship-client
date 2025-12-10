@@ -11,7 +11,7 @@ const NotFound = () => {
           Oops! The page you're looking for doesn't exist or has been moved.
           Let's get you back on track.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
           <Link to="/" className="btn btn-primary btn-lg gap-2">
             <FaHome /> Go to Home

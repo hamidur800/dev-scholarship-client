@@ -41,27 +41,59 @@ const DashboardLayout = () => {
   const adminLinks = [
     { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
-    { path: "/dashboard/add-scholarship", label: "Add Scholarship", icon: <FaPlus /> },
-    { path: "/dashboard/manage-scholarships", label: "Manage Scholarships", icon: <FaList /> },
-    { path: "/dashboard/manage-users", label: "Manage Users", icon: <FaUsers /> },
+    {
+      path: "/dashboard/add-scholarship",
+      label: "Add Scholarship",
+      icon: <FaPlus />,
+    },
+    {
+      path: "/dashboard/manage-scholarships",
+      label: "Manage Scholarships",
+      icon: <FaList />,
+    },
+    {
+      path: "/dashboard/manage-users",
+      label: "Manage Users",
+      icon: <FaUsers />,
+    },
     { path: "/dashboard/analytics", label: "Analytics", icon: <FaChartBar /> },
   ];
 
   const moderatorLinks = [
     { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
-    { path: "/dashboard/manage-applications", label: "Manage Applications", icon: <FaFileAlt /> },
-    { path: "/dashboard/all-reviews", label: "All Reviews", icon: <FaComments /> },
+    {
+      path: "/dashboard/manage-applications",
+      label: "Manage Applications",
+      icon: <FaFileAlt />,
+    },
+    {
+      path: "/dashboard/all-reviews",
+      label: "All Reviews",
+      icon: <FaComments />,
+    },
   ];
 
   const studentLinks = [
     { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },
-    { path: "/dashboard/my-applications", label: "My Applications", icon: <FaFileAlt /> },
-    { path: "/dashboard/my-reviews", label: "My Reviews", icon: <FaComments /> },
+    {
+      path: "/dashboard/my-applications",
+      label: "My Applications",
+      icon: <FaFileAlt />,
+    },
+    {
+      path: "/dashboard/my-reviews",
+      label: "My Reviews",
+      icon: <FaComments />,
+    },
   ];
 
-  const links = isAdmin ? adminLinks : isModerator ? moderatorLinks : studentLinks;
+  const links = isAdmin
+    ? adminLinks
+    : isModerator
+    ? moderatorLinks
+    : studentLinks;
 
   return (
     <div className="flex min-h-screen bg-base-200">
@@ -82,7 +114,9 @@ const DashboardLayout = () => {
           <Link
             to="/"
             className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
-              isActive("/") ? "bg-primary text-primary-content" : "hover:bg-base-200"
+              isActive("/")
+                ? "bg-primary text-primary-content"
+                : "hover:bg-base-200"
             }`}
           >
             <FaHome className="text-lg" />
@@ -97,7 +131,9 @@ const DashboardLayout = () => {
               key={link.path}
               to={link.path}
               className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
-                isActive(link.path) ? "bg-primary text-primary-content" : "hover:bg-base-200"
+                isActive(link.path)
+                  ? "bg-primary text-primary-content"
+                  : "hover:bg-base-200"
               }`}
               title={sidebarOpen ? "" : link.label}
             >
@@ -120,7 +156,11 @@ const DashboardLayout = () => {
       </aside>
 
       {/* Main Content */}
-      <main className={`${sidebarOpen ? "ml-64" : "ml-20"} flex-1 transition-all duration-300`}>
+      <main
+        className={`${
+          sidebarOpen ? "ml-64" : "ml-20"
+        } flex-1 transition-all duration-300`}
+      >
         {/* Top Bar */}
         <div className="bg-base-100 shadow-sm sticky top-0 z-30">
           <div className="flex items-center justify-between p-4">
@@ -133,7 +173,9 @@ const DashboardLayout = () => {
 
             <div className="flex items-center gap-4">
               <div className="text-right hidden sm:block">
-                <p className="font-semibold">{user?.displayName || user?.email}</p>
+                <p className="font-semibold">
+                  {user?.displayName || user?.email}
+                </p>
                 <p className="text-sm text-base-content/70">{user?.role}</p>
               </div>
               <div className="avatar placeholder">

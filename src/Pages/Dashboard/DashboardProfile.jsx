@@ -29,13 +29,15 @@ const DashboardProfile = () => {
               <img
                 src={
                   user?.photoURL ||
-                  "https://api.dicebear.com/7.x/avataaars/svg?seed=" + user?.email
+                  "https://api.dicebear.com/7.x/avataaars/svg?seed=" +
+                    user?.email
                 }
                 alt={user?.displayName}
                 className="w-32 h-32 rounded-full border-4 border-primary shadow-lg"
               />
               <p className="mt-4 text-sm text-base-content/70">
-                Member since {new Date(user?.metadata?.creationTime).toLocaleDateString()}
+                Member since{" "}
+                {new Date(user?.metadata?.creationTime).toLocaleDateString()}
               </p>
             </div>
 
@@ -79,11 +81,15 @@ const DashboardProfile = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Account Status</span>
+                  <span className="label-text font-semibold">
+                    Account Status
+                  </span>
                 </label>
                 <input
                   type="text"
-                  value={user?.emailVerified ? "Verified" : "Pending Verification"}
+                  value={
+                    user?.emailVerified ? "Verified" : "Pending Verification"
+                  }
                   disabled
                   className="input input-bordered input-disabled"
                 />

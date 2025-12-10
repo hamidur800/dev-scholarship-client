@@ -61,7 +61,8 @@ const Header = () => {
                 <img
                   src={
                     user?.photoURL ||
-                    "https://api.dicebear.com/7.x/avataaars/svg?seed=" + user?.email
+                    "https://api.dicebear.com/7.x/avataaars/svg?seed=" +
+                      user?.email
                   }
                   alt={user?.displayName || "User"}
                 />
@@ -70,7 +71,9 @@ const Header = () => {
             {dropdownOpen && (
               <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                  <a className="font-semibold">{user?.displayName || user?.email}</a>
+                  <a className="font-semibold">
+                    {user?.displayName || user?.email}
+                  </a>
                 </li>
                 <li>
                   <Link to="/dashboard">Dashboard</Link>

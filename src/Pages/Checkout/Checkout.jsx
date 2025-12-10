@@ -94,7 +94,9 @@ const Checkout = () => {
       );
 
       toast.success("Payment processed successfully!");
-      navigate("/payment-success", { state: { application: response.data.data } });
+      navigate("/payment-success", {
+        state: { application: response.data.data },
+      });
     } catch (error) {
       console.error("Payment error:", error);
       toast.error(error.response?.data?.message || "Payment processing failed");
@@ -144,7 +146,10 @@ const Checkout = () => {
             <div className="card bg-base-100 shadow-xl sticky top-4">
               <figure className="px-4 pt-4">
                 <img
-                  src={scholarship.universityImage || "https://via.placeholder.com/300x200"}
+                  src={
+                    scholarship.universityImage ||
+                    "https://via.placeholder.com/300x200"
+                  }
                   alt={scholarship.universityName}
                   className="rounded-lg h-40 w-full object-cover"
                 />
@@ -162,16 +167,22 @@ const Checkout = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span>Application Fee:</span>
-                    <span className="font-semibold">${scholarship.applicationFees}</span>
+                    <span className="font-semibold">
+                      ${scholarship.applicationFees}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Service Charge:</span>
-                    <span className="font-semibold">${scholarship.serviceCharge}</span>
+                    <span className="font-semibold">
+                      ${scholarship.serviceCharge}
+                    </span>
                   </div>
                   <div className="divider my-2"></div>
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total:</span>
-                    <span className="text-primary">${totalAmount.toFixed(2)}</span>
+                    <span className="text-primary">
+                      ${totalAmount.toFixed(2)}
+                    </span>
                   </div>
                 </div>
 
@@ -265,7 +276,9 @@ const Checkout = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text font-semibold">Expiry Date</span>
+                        <span className="label-text font-semibold">
+                          Expiry Date
+                        </span>
                       </label>
                       <input
                         type="text"
@@ -323,7 +336,8 @@ const Checkout = () => {
                       ></path>
                     </svg>
                     <span>
-                      By proceeding, you accept the terms and conditions of this scholarship application.
+                      By proceeding, you accept the terms and conditions of this
+                      scholarship application.
                     </span>
                   </div>
 
@@ -346,7 +360,8 @@ const Checkout = () => {
                 </form>
 
                 <p className="text-xs text-base-content/50 text-center flex items-center justify-center gap-2">
-                  <FaLock className="text-xs" /> Your payment is secure and encrypted
+                  <FaLock className="text-xs" /> Your payment is secure and
+                  encrypted
                 </p>
               </div>
             </div>

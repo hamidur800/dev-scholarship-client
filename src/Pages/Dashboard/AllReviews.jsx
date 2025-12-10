@@ -98,7 +98,8 @@ const AllReviews = () => {
           <div className="stat-value">
             {reviews.length > 0
               ? (
-                  reviews.reduce((sum, r) => sum + (r.rating || 0), 0) / reviews.length
+                  reviews.reduce((sum, r) => sum + (r.rating || 0), 0) /
+                  reviews.length
                 ).toFixed(1)
               : "0"}
           </div>
@@ -176,9 +177,7 @@ const AllReviews = () => {
                 <div className="divider my-2"></div>
 
                 <div className="flex justify-between items-center text-xs text-base-content/60">
-                  <span>
-                    📧 {review.reviewerEmail || "No email"}
-                  </span>
+                  <span>📧 {review.reviewerEmail || "No email"}</span>
                   <span>
                     📅 {new Date(review.dateOfReview).toLocaleDateString()}
                   </span>

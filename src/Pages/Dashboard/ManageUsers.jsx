@@ -36,9 +36,10 @@ const ManageUsers = () => {
     }
   };
 
-  const filteredUsers = selectedRole === "all" 
-    ? users 
-    : users.filter(user => user.role === selectedRole);
+  const filteredUsers =
+    selectedRole === "all"
+      ? users
+      : users.filter((user) => user.role === selectedRole);
 
   const handleChangeRole = async (userId, user) => {
     setEditingUserId(userId);
@@ -117,9 +118,9 @@ const ManageUsers = () => {
 
   const stats = {
     total: users.length,
-    admins: users.filter(u => u.role === "admin").length,
-    moderators: users.filter(u => u.role === "moderator").length,
-    students: users.filter(u => u.role === "student").length,
+    admins: users.filter((u) => u.role === "admin").length,
+    moderators: users.filter((u) => u.role === "moderator").length,
+    students: users.filter((u) => u.role === "student").length,
   };
 
   return (
@@ -146,7 +147,11 @@ const ManageUsers = () => {
         {[
           { label: "Total Users", value: stats.total, color: "stats-primary" },
           { label: "Admins", value: stats.admins, color: "stats-error" },
-          { label: "Moderators", value: stats.moderators, color: "stats-warning" },
+          {
+            label: "Moderators",
+            value: stats.moderators,
+            color: "stats-warning",
+          },
           { label: "Students", value: stats.students, color: "stats-info" },
         ].map((stat, idx) => (
           <motion.div

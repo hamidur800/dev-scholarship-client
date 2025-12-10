@@ -112,10 +112,7 @@ const ManageScholarships = () => {
     >
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Manage Scholarships</h1>
-        <Link
-          to="/dashboard/add-scholarship"
-          className="btn btn-primary gap-2"
-        >
+        <Link to="/dashboard/add-scholarship" className="btn btn-primary gap-2">
           <FaPlus /> Add Scholarship
         </Link>
       </div>
@@ -154,7 +151,9 @@ const ManageScholarships = () => {
                   transition={{ duration: 0.3 }}
                   className="hover"
                 >
-                  <td className="font-semibold">{scholarship.scholarshipName}</td>
+                  <td className="font-semibold">
+                    {scholarship.scholarshipName}
+                  </td>
                   <td>{scholarship.universityName}</td>
                   <td>{scholarship.universityCountry}</td>
                   <td>
@@ -163,7 +162,11 @@ const ManageScholarships = () => {
                     </span>
                   </td>
                   <td>${scholarship.applicationFees}</td>
-                  <td>{new Date(scholarship.applicationDeadline).toLocaleDateString()}</td>
+                  <td>
+                    {new Date(
+                      scholarship.applicationDeadline
+                    ).toLocaleDateString()}
+                  </td>
                   <td className="flex gap-2">
                     <button
                       onClick={() => handleEditClick(scholarship)}
@@ -299,10 +302,7 @@ const ManageScholarships = () => {
               >
                 Cancel
               </button>
-              <button
-                onClick={handleSaveEdit}
-                className="btn btn-primary"
-              >
+              <button onClick={handleSaveEdit} className="btn btn-primary">
                 Save Changes
               </button>
             </div>

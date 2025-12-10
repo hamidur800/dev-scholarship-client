@@ -42,9 +42,7 @@ const MyReviews = () => {
     try {
       await reviewApi.update(reviewId, editForm);
       setReviews(
-        reviews.map((r) =>
-          r._id === reviewId ? { ...r, ...editForm } : r
-        )
+        reviews.map((r) => (r._id === reviewId ? { ...r, ...editForm } : r))
       );
       setEditingReview(null);
       toast.success("Review updated");

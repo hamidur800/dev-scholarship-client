@@ -58,7 +58,9 @@ const ManageApplications = () => {
     try {
       const token = localStorage.getItem("access_token");
       await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/api/applications/${selectedApplication._id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/applications/${
+          selectedApplication._id
+        }`,
         { feedback: feedbackText },
         {
           headers: {
@@ -79,7 +81,9 @@ const ManageApplications = () => {
     try {
       const token = localStorage.getItem("access_token");
       await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/api/applications/${applicationId}`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/applications/${applicationId}`,
         { status: newAppStatus },
         {
           headers: {
@@ -133,7 +137,9 @@ const ManageApplications = () => {
       {applications.length === 0 ? (
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body text-center py-16">
-            <p className="text-lg text-base-content/70">No applications found</p>
+            <p className="text-lg text-base-content/70">
+              No applications found
+            </p>
           </div>
         </div>
       ) : (
@@ -163,15 +169,23 @@ const ManageApplications = () => {
                   <td className="font-semibold">{app.applicantName}</td>
                   <td>{app.applicantEmail}</td>
                   <td className="text-sm">{app.universityName}</td>
-                  <td className="text-sm truncate max-w-xs">{app.scholarshipName}</td>
+                  <td className="text-sm truncate max-w-xs">
+                    {app.scholarshipName}
+                  </td>
                   <td>
                     <select
                       value={app.status}
-                      onChange={(e) => handleStatusUpdate(app._id, e.target.value)}
+                      onChange={(e) =>
+                        handleStatusUpdate(app._id, e.target.value)
+                      }
                       className={`select select-bordered select-xs ${
-                        app.status === "pending" ? "select-warning" :
-                        app.status === "processing" ? "select-info" :
-                        app.status === "completed" ? "select-success" : "select-error"
+                        app.status === "pending"
+                          ? "select-warning"
+                          : app.status === "processing"
+                          ? "select-info"
+                          : app.status === "completed"
+                          ? "select-success"
+                          : "select-error"
                       }`}
                     >
                       <option value="pending">Pending</option>
@@ -181,7 +195,11 @@ const ManageApplications = () => {
                     </select>
                   </td>
                   <td>
-                    <span className={`badge ${getPaymentStatusColor(app.paymentStatus)}`}>
+                    <span
+                      className={`badge ${getPaymentStatusColor(
+                        app.paymentStatus
+                      )}`}
+                    >
                       {app.paymentStatus}
                     </span>
                   </td>
@@ -218,25 +236,20 @@ const ManageApplications = () => {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm font-semibold text-base-content/70">Applicant Name</p>
-                  <p className="font-bold">{selectedApplication.applicantName}</p>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    Applicant Name
+                  </p>
+                  <p className="font-bold">
+                    {selectedApplication.applicantName}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-base-content/70">Email</p>
-                  <p className="font-bold">{selectedApplication.applicantEmail}</p>
-                </div>
-              </div>
-
-              <div className="divider my-2"></div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm font-semibold text-base-content/70">University</p>
-                  <p className="font-bold">{selectedApplication.universityName}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-base-content/70">Scholarship</p>
-                  <p className="font-bold text-sm">{selectedApplication.scholarshipName}</p>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    Email
+                  </p>
+                  <p className="font-bold">
+                    {selectedApplication.applicantEmail}
+                  </p>
                 </div>
               </div>
 
@@ -244,14 +257,47 @@ const ManageApplications = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm font-semibold text-base-content/70">Status</p>
-                  <span className={`badge ${getStatusColor(selectedApplication.status)}`}>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    University
+                  </p>
+                  <p className="font-bold">
+                    {selectedApplication.universityName}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    Scholarship
+                  </p>
+                  <p className="font-bold text-sm">
+                    {selectedApplication.scholarshipName}
+                  </p>
+                </div>
+              </div>
+
+              <div className="divider my-2"></div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    Status
+                  </p>
+                  <span
+                    className={`badge ${getStatusColor(
+                      selectedApplication.status
+                    )}`}
+                  >
                     {selectedApplication.status}
                   </span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-base-content/70">Payment Status</p>
-                  <span className={`badge ${getPaymentStatusColor(selectedApplication.paymentStatus)}`}>
+                  <p className="text-sm font-semibold text-base-content/70">
+                    Payment Status
+                  </p>
+                  <span
+                    className={`badge ${getPaymentStatusColor(
+                      selectedApplication.paymentStatus
+                    )}`}
+                  >
                     {selectedApplication.paymentStatus}
                   </span>
                 </div>
@@ -260,20 +306,34 @@ const ManageApplications = () => {
               <div className="divider my-2"></div>
 
               <div>
-                <p className="text-sm font-semibold text-base-content/70 mb-2">Feedback</p>
-                <p className="bg-base-200 p-3 rounded">{selectedApplication.feedback || "No feedback yet"}</p>
+                <p className="text-sm font-semibold text-base-content/70 mb-2">
+                  Feedback
+                </p>
+                <p className="bg-base-200 p-3 rounded">
+                  {selectedApplication.feedback || "No feedback yet"}
+                </p>
               </div>
 
               <div className="divider my-2"></div>
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="font-semibold text-base-content/70">Applied On</p>
-                  <p>{new Date(selectedApplication.dateApplied).toLocaleDateString()}</p>
+                  <p className="font-semibold text-base-content/70">
+                    Applied On
+                  </p>
+                  <p>
+                    {new Date(
+                      selectedApplication.dateApplied
+                    ).toLocaleDateString()}
+                  </p>
                 </div>
                 <div>
-                  <p className="font-semibold text-base-content/70">Application Amount</p>
-                  <p className="font-bold">${selectedApplication.applicationAmount || "0"}</p>
+                  <p className="font-semibold text-base-content/70">
+                    Application Amount
+                  </p>
+                  <p className="font-bold">
+                    ${selectedApplication.applicationAmount || "0"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -325,10 +385,7 @@ const ManageApplications = () => {
               >
                 Cancel
               </button>
-              <button
-                onClick={handleSaveFeedback}
-                className="btn btn-primary"
-              >
+              <button onClick={handleSaveFeedback} className="btn btn-primary">
                 Save Feedback
               </button>
             </div>

@@ -88,7 +88,9 @@ const AddScholarship = () => {
             {/* Scholarship Name */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-semibold">Scholarship Name *</span>
+                <span className="label-text font-semibold">
+                  Scholarship Name *
+                </span>
               </label>
               <input
                 type="text"
@@ -105,7 +107,9 @@ const AddScholarship = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">University Name *</span>
+                  <span className="label-text font-semibold">
+                    University Name *
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -173,7 +177,9 @@ const AddScholarship = () => {
             {/* University Image */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-semibold">University Image URL *</span>
+                <span className="label-text font-semibold">
+                  University Image URL *
+                </span>
               </label>
               <input
                 type="url"
@@ -190,7 +196,9 @@ const AddScholarship = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Subject Category *</span>
+                  <span className="label-text font-semibold">
+                    Subject Category *
+                  </span>
                 </label>
                 <select
                   name="subjectCategory"
@@ -209,7 +217,9 @@ const AddScholarship = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Scholarship Category *</span>
+                  <span className="label-text font-semibold">
+                    Scholarship Category *
+                  </span>
                 </label>
                 <select
                   name="scholarshipCategory"
@@ -252,7 +262,9 @@ const AddScholarship = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Tuition Fees (Annual) *</span>
+                  <span className="label-text font-semibold">
+                    Tuition Fees (Annual) *
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -266,7 +278,9 @@ const AddScholarship = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Application Fee *</span>
+                  <span className="label-text font-semibold">
+                    Application Fee *
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -280,7 +294,9 @@ const AddScholarship = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Service Charge *</span>
+                  <span className="label-text font-semibold">
+                    Service Charge *
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -298,7 +314,9 @@ const AddScholarship = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Application Deadline *</span>
+                  <span className="label-text font-semibold">
+                    Application Deadline *
+                  </span>
                 </label>
                 <input
                   type="date"

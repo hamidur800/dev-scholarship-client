@@ -85,7 +85,9 @@ const Login = () => {
                 placeholder="Enter your email"
                 className="input input-bordered"
               />
-              {errors.email && <span className="text-error text-sm">{errors.email}</span>}
+              {errors.email && (
+                <span className="text-error text-sm">{errors.email}</span>
+              )}
             </div>
 
             <div className="form-control">
@@ -115,7 +117,11 @@ const Login = () => {
               disabled={loading}
               className="btn btn-primary w-full"
             >
-              {loading ? <span className="loading loading-spinner"></span> : "Login"}
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
 

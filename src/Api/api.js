@@ -16,35 +16,63 @@ API.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Response interceptor for error handling
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("authToken");
+      window.location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
+
 // Scholarship API calls
 export const scholarshipApi = {
   getAll: (params) => API.get("/api/scholarships", { params }),
+  getTop: () => API.get("/api/scholarships/top"),
   getById: (id) => API.get(`/api/scholarships/${id}`),
   create: (data) => API.post("/api/scholarships", data),
   update: (id, data) => API.put(`/api/scholarships/${id}`, data),
   delete: (id) => API.delete(`/api/scholarships/${id}`),
-  search: (query) => API.get(`/api/scholarships/search?q=${query}`),
 };
 
 // Application API calls
 export const applicationApi = {
-  getAll: (params) => API.get("/api/applications", { params }),
+  getAll: () => API.get("/api/applications"),
+  getByUser: (userId) => API.get(`/api/applications/user/${userId}`),
   getById: (id) => API.get(`/api/applications/${id}`),
   create: (data) => API.post("/api/applications", data),
   update: (id, data) => API.put(`/api/applications/${id}`, data),
+  updateStatus: (id, data) => API.put(`/api/applications/${id}/status`, data),
+  updatePayment: (id, data) => API.put(`/api/applications/${id}/payment`, data),
   delete: (id) => API.delete(`/api/applications/${id}`),
-  getMyApplications: () => API.get("/api/applications/my-applications"),
 };
 
 // Review API calls
 export const reviewApi = {
   getByScholarship: (scholarshipId) =>
     API.get(`/api/reviews/scholarship/${scholarshipId}`),
-  getAll: (params) => API.get("/api/reviews", { params }),
+  getByUser: (userEmail) => API.get(`/api/reviews/user/${userEmail}`),
+  getAll: () => API.get("/api/reviews"),
   create: (data) => API.post("/api/reviews", data),
   update: (id, data) => API.put(`/api/reviews/${id}`, data),
   delete: (id) => API.delete(`/api/reviews/${id}`),
-  getMyReviews: () => API.get("/api/reviews/my-reviews"),
+};
+
+// Admin API calls
+export const adminApi = {
+  getUsers: (role) => API.get("/api/admin/users", { params: { role } }),
+  updateUserRole: (id, data) => API.put(`/api/admin/users/${id}/role`, data),
+  deleteUser: (id) => API.delete(`/api/admin/users/${id}`),
+  getAnalytics: () => API.get("/api/admin/analytics"),
+};
+
+// Payment API calls
+export const paymentApi = {
+  createPaymentIntent: (data) => API.post("/api/payments/intent", data),
+  confirmPayment: (data) => API.post("/api/payments/confirm", data),
 };
 
 // User API calls

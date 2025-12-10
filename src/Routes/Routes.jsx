@@ -93,7 +93,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-          element: <RoleDashboard />,
+        element: <RoleDashboard />,
       },
       {
         path: "/dashboard/profile",
@@ -107,42 +107,42 @@ const router = createBrowserRouter([
         path: "/dashboard/my-reviews",
         element: <MyReviews />,
       },
-        {
-          path: "/dashboard/add-scholarship",
-          element: <AddScholarship />,
-        },
-        {
-          path: "/dashboard/manage-scholarships",
-          element: <ManageScholarships />,
-        },
-        {
-          path: "/dashboard/manage-users",
-          element: <ManageUsers />,
-        },
-        {
-          path: "/dashboard/analytics",
-          element: <Analytics />,
-        },
-        {
-          path: "/dashboard/manage-applications",
-          element: <ManageApplications />,
-        },
-        {
-          path: "/dashboard/all-reviews",
-          element: <AllReviews />,
-        },
-          {
-            path: "/dashboard/add-review",
-            element: <AddReview />,
-          },
-            {
-              path: "/dashboard/edit-profile",
-              element: <EditProfile />,
-            },
-              {
-                path: "/dashboard/search",
-                element: <SearchScholarships />,
-              },
+      {
+        path: "/dashboard/add-scholarship",
+        element: <AddScholarship />,
+      },
+      {
+        path: "/dashboard/manage-scholarships",
+        element: <ManageScholarships />,
+      },
+      {
+        path: "/dashboard/manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/dashboard/analytics",
+        element: <Analytics />,
+      },
+      {
+        path: "/dashboard/manage-applications",
+        element: <ManageApplications />,
+      },
+      {
+        path: "/dashboard/all-reviews",
+        element: <AllReviews />,
+      },
+      {
+        path: "/dashboard/add-review",
+        element: <AddReview />,
+      },
+      {
+        path: "/dashboard/edit-profile",
+        element: <EditProfile />,
+      },
+      {
+        path: "/dashboard/search",
+        element: <SearchScholarships />,
+      },
     ],
   },
 ]);

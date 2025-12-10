@@ -18,7 +18,9 @@ const PaymentFailed = () => {
 
           {/* Title */}
           <div>
-            <h1 className="text-3xl font-bold text-error mb-2">Payment Failed</h1>
+            <h1 className="text-3xl font-bold text-error mb-2">
+              Payment Failed
+            </h1>
             <p className="text-base-content/70">
               We couldn't process your payment. Please try again.
             </p>
@@ -58,7 +60,8 @@ const PaymentFailed = () => {
               ></path>
             </svg>
             <span>
-              Don't worry! Your application wasn't created yet. You can retry the payment from your dashboard.
+              Don't worry! Your application wasn't created yet. You can retry
+              the payment from your dashboard.
             </span>
           </div>
 

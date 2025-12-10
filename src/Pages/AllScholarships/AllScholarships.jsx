@@ -52,7 +52,9 @@ const AllScholarships = () => {
 
     // Category filter
     if (filterCategory !== "all") {
-      filtered = filtered.filter((s) => s.scholarshipCategory === filterCategory);
+      filtered = filtered.filter(
+        (s) => s.scholarshipCategory === filterCategory
+      );
     }
 
     // Country filter
@@ -62,11 +64,18 @@ const AllScholarships = () => {
 
     // Sort
     if (sortBy === "fees-low") {
-      filtered.sort((a, b) => (a.applicationFees || 0) - (b.applicationFees || 0));
+      filtered.sort(
+        (a, b) => (a.applicationFees || 0) - (b.applicationFees || 0)
+      );
     } else if (sortBy === "fees-high") {
-      filtered.sort((a, b) => (b.applicationFees || 0) - (a.applicationFees || 0));
+      filtered.sort(
+        (a, b) => (b.applicationFees || 0) - (a.applicationFees || 0)
+      );
     } else if (sortBy === "recent") {
-      filtered.sort((a, b) => new Date(b.scholarshipPostDate) - new Date(a.scholarshipPostDate));
+      filtered.sort(
+        (a, b) =>
+          new Date(b.scholarshipPostDate) - new Date(a.scholarshipPostDate)
+      );
     }
 
     setFilteredScholarships(filtered);
@@ -81,7 +90,9 @@ const AllScholarships = () => {
   );
 
   const countries = [...new Set(scholarships.map((s) => s.universityCountry))];
-  const categories = [...new Set(scholarships.map((s) => s.scholarshipCategory))];
+  const categories = [
+    ...new Set(scholarships.map((s) => s.scholarshipCategory)),
+  ];
 
   return (
     <div className="min-h-screen bg-base-100 py-12 px-4">
@@ -192,7 +203,10 @@ const AllScholarships = () => {
                 >
                   <figure className="px-4 pt-4">
                     <img
-                      src={scholarship.universityImage || "https://via.placeholder.com/400x250"}
+                      src={
+                        scholarship.universityImage ||
+                        "https://via.placeholder.com/400x250"
+                      }
                       alt={scholarship.universityName}
                       className="rounded-lg h-48 w-full object-cover"
                     />
@@ -205,7 +219,8 @@ const AllScholarships = () => {
                       {scholarship.universityName}
                     </p>
                     <p className="text-sm text-base-content/70">
-                      {scholarship.universityCity}, {scholarship.universityCountry}
+                      {scholarship.universityCity},{" "}
+                      {scholarship.universityCountry}
                     </p>
 
                     <div className="divider my-2"></div>
@@ -222,7 +237,9 @@ const AllScholarships = () => {
                         <span>{scholarship.degree}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-base-content/70">Application Fee:</span>
+                        <span className="text-base-content/70">
+                          Application Fee:
+                        </span>
                         <span className="font-semibold">
                           ${scholarship.applicationFees || "Free"}
                         </span>
@@ -252,17 +269,23 @@ const AllScholarships = () => {
                 >
                   Previous
                 </button>
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => setCurrentPage(page)}
-                    className={`btn ${currentPage === page ? "btn-primary" : "btn-outline"}`}
-                  >
-                    {page}
-                  </button>
-                ))}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`btn ${
+                        currentPage === page ? "btn-primary" : "btn-outline"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  )
+                )}
                 <button
-                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                  onClick={() =>
+                    setCurrentPage(Math.min(totalPages, currentPage + 1))
+                  }
                   disabled={currentPage === totalPages}
                   className="btn btn-outline"
                 >

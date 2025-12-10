@@ -25,7 +25,9 @@ const AddReview = () => {
       setLoading(true);
       const token = localStorage.getItem("access_token");
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/applications?status=completed`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/applications?status=completed`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,7 +35,8 @@ const AddReview = () => {
         }
       );
 
-      const scholarshipIds = response.data.data?.map((app) => app.scholarshipId) || [];
+      const scholarshipIds =
+        response.data.data?.map((app) => app.scholarshipId) || [];
       if (scholarshipIds.length > 0) {
         const scholarshipsRes = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/api/scholarships`,
@@ -136,17 +139,24 @@ const AddReview = () => {
             {/* Scholarship Selection */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-semibold">Select Scholarship *</span>
+                <span className="label-text font-semibold">
+                  Select Scholarship *
+                </span>
               </label>
               {scholarships.length === 0 ? (
                 <div className="alert alert-info">
-                  <p>No completed scholarships to review. Complete an application first!</p>
+                  <p>
+                    No completed scholarships to review. Complete an application
+                    first!
+                  </p>
                 </div>
               ) : (
                 <select
                   value={selectedScholarship?._id || ""}
                   onChange={(e) => {
-                    const scholarship = scholarships.find((s) => s._id === e.target.value);
+                    const scholarship = scholarships.find(
+                      (s) => s._id === e.target.value
+                    );
                     setSelectedScholarship(scholarship);
                   }}
                   required
@@ -155,7 +165,8 @@ const AddReview = () => {
                   <option value="">Choose a scholarship...</option>
                   {scholarships.map((scholarship) => (
                     <option key={scholarship._id} value={scholarship._id}>
-                      {scholarship.scholarshipName} - {scholarship.universityName}
+                      {scholarship.scholarshipName} -{" "}
+                      {scholarship.universityName}
                     </option>
                   ))}
                 </select>
@@ -184,7 +195,9 @@ const AddReview = () => {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <FaStar
                       key={i}
-                      className={i < formData.rating ? "text-warning" : "text-base-300"}
+                      className={
+                        i < formData.rating ? "text-warning" : "text-base-300"
+                      }
                     />
                   ))}
                 </div>
@@ -205,7 +218,9 @@ const AddReview = () => {
                 placeholder="Share your experience with this scholarship program..."
               ></textarea>
               <label className="label">
-                <span className="label-text-alt">{formData.comment.length} / 500 characters</span>
+                <span className="label-text-alt">
+                  {formData.comment.length} / 500 characters
+                </span>
               </label>
             </div>
 
@@ -233,8 +248,8 @@ const AddReview = () => {
         <div className="card-body">
           <h3 className="card-title text-info text-lg">Why Review?</h3>
           <p>
-            Your honest reviews help other students make informed decisions about scholarships.
-            Share your experience to help the community!
+            Your honest reviews help other students make informed decisions
+            about scholarships. Share your experience to help the community!
           </p>
         </div>
       </motion.div>

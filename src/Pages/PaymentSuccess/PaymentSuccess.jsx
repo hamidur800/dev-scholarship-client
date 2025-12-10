@@ -34,7 +34,9 @@ const PaymentSuccess = () => {
 
           {/* Title */}
           <div>
-            <h1 className="text-3xl font-bold text-success mb-2">Payment Successful!</h1>
+            <h1 className="text-3xl font-bold text-success mb-2">
+              Payment Successful!
+            </h1>
             <p className="text-base-content/70">
               Your application has been submitted successfully.
             </p>
@@ -63,7 +65,9 @@ const PaymentSuccess = () => {
               </div>
               <div>
                 <p className="text-sm text-base-content/70">Category</p>
-                <p className="font-semibold">{application.scholarshipCategory}</p>
+                <p className="font-semibold">
+                  {application.scholarshipCategory}
+                </p>
               </div>
             </div>
 
@@ -93,7 +97,8 @@ const PaymentSuccess = () => {
               ></path>
             </svg>
             <span>
-              Your application status is <strong>Pending</strong>. Our moderators will review it soon.
+              Your application status is <strong>Pending</strong>. Our
+              moderators will review it soon.
             </span>
           </div>
 
@@ -118,7 +123,10 @@ const PaymentSuccess = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3">
-            <Link to="/dashboard/my-applications" className="btn btn-primary btn-lg">
+            <Link
+              to="/dashboard/my-applications"
+              className="btn btn-primary btn-lg"
+            >
               Go to My Applications
             </Link>
             <Link to="/all-scholarships" className="btn btn-outline btn-lg">
@@ -129,7 +137,9 @@ const PaymentSuccess = () => {
           {/* Reference */}
           <div className="text-xs text-base-content/50">
             <p>Application ID: {application._id}</p>
-            <p>Date: {new Date(application.applicationDate).toLocaleString()}</p>
+            <p>
+              Date: {new Date(application.applicationDate).toLocaleString()}
+            </p>
           </div>
         </div>
       </div>

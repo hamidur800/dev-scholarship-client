@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { FaStar, FaMapMarkerAlt, FaCalendarAlt, FaDollarSign } from "react-icons/fa";
+import {
+  FaStar,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaDollarSign,
+} from "react-icons/fa";
 import { reviewApi } from "../../Api/api";
 import { useAuth } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
@@ -74,7 +79,9 @@ const ScholarshipDetails = () => {
 
   const averageRating =
     reviews.length > 0
-      ? (reviews.reduce((sum, r) => sum + r.ratingPoint, 0) / reviews.length).toFixed(1)
+      ? (
+          reviews.reduce((sum, r) => sum + r.ratingPoint, 0) / reviews.length
+        ).toFixed(1)
       : 0;
 
   return (
@@ -88,7 +95,10 @@ const ScholarshipDetails = () => {
           className="mb-8"
         >
           <img
-            src={scholarship.universityImage || "https://via.placeholder.com/800x400"}
+            src={
+              scholarship.universityImage ||
+              "https://via.placeholder.com/800x400"
+            }
             alt={scholarship.universityName}
             className="rounded-lg w-full h-96 object-cover shadow-xl"
           />
@@ -104,7 +114,9 @@ const ScholarshipDetails = () => {
           {/* Title and Main Info */}
           <div className="card bg-base-100 shadow-lg border border-base-300">
             <div className="card-body">
-              <h1 className="card-title text-4xl mb-4">{scholarship.scholarshipName}</h1>
+              <h1 className="card-title text-4xl mb-4">
+                {scholarship.scholarshipName}
+              </h1>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-3">
@@ -115,10 +127,14 @@ const ScholarshipDetails = () => {
                   </div>
                   <p className="text-lg text-base-content/70 flex items-center gap-2">
                     <FaMapMarkerAlt className="text-primary" />
-                    {scholarship.universityCity}, {scholarship.universityCountry}
+                    {scholarship.universityCity},{" "}
+                    {scholarship.universityCountry}
                   </p>
                   <p className="text-base-content/70">
-                    World Rank: <span className="font-semibold">#{scholarship.universityWorldRank}</span>
+                    World Rank:{" "}
+                    <span className="font-semibold">
+                      #{scholarship.universityWorldRank}
+                    </span>
                   </p>
                 </div>
 
@@ -130,11 +146,17 @@ const ScholarshipDetails = () => {
                     </span>
                   </div>
                   <p className="text-base-content/70">
-                    Service Charge: <span className="font-semibold">${scholarship.serviceCharge || 0}</span>
+                    Service Charge:{" "}
+                    <span className="font-semibold">
+                      ${scholarship.serviceCharge || 0}
+                    </span>
                   </p>
                   <p className="text-base-content/70 flex items-center gap-2">
                     <FaCalendarAlt className="text-warning" />
-                    Deadline: {new Date(scholarship.applicationDeadline).toLocaleDateString()}
+                    Deadline:{" "}
+                    {new Date(
+                      scholarship.applicationDeadline
+                    ).toLocaleDateString()}
                   </p>
                 </div>
               </div>
@@ -143,8 +165,12 @@ const ScholarshipDetails = () => {
               <div className="divider"></div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div>
-                  <p className="text-sm text-base-content/70">Scholarship Type</p>
-                  <p className="font-semibold">{scholarship.scholarshipCategory}</p>
+                  <p className="text-sm text-base-content/70">
+                    Scholarship Type
+                  </p>
+                  <p className="font-semibold">
+                    {scholarship.scholarshipCategory}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-base-content/70">Degree Level</p>
@@ -157,14 +183,19 @@ const ScholarshipDetails = () => {
                 <div>
                   <p className="text-sm text-base-content/70">Posted</p>
                   <p className="font-semibold">
-                    {new Date(scholarship.scholarshipPostDate).toLocaleDateString()}
+                    {new Date(
+                      scholarship.scholarshipPostDate
+                    ).toLocaleDateString()}
                   </p>
                 </div>
               </div>
 
               {/* Apply Button */}
               <div className="mt-6 flex gap-4">
-                <button onClick={handleApply} className="btn btn-primary btn-lg flex-1">
+                <button
+                  onClick={handleApply}
+                  className="btn btn-primary btn-lg flex-1"
+                >
                   Apply for Scholarship
                 </button>
                 <button className="btn btn-outline btn-lg">
@@ -201,23 +232,34 @@ const ScholarshipDetails = () => {
                 <div>
                   <h2 className="card-title mb-3">About This Scholarship</h2>
                   <p className="text-base-content/80 leading-relaxed">
-                    {scholarship.description || "This is a prestigious scholarship opportunity offered by " + scholarship.universityName + ". It aims to support talented and deserving students in their pursuit of higher education."}
+                    {scholarship.description ||
+                      "This is a prestigious scholarship opportunity offered by " +
+                        scholarship.universityName +
+                        ". It aims to support talented and deserving students in their pursuit of higher education."}
                   </p>
                 </div>
 
                 {scholarship.tuitionFees && (
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Tuition Fees Coverage</h3>
+                    <h3 className="font-semibold text-lg mb-2">
+                      Tuition Fees Coverage
+                    </h3>
                     <p className="text-base-content/80">
-                      This scholarship covers tuition fees up to ${scholarship.tuitionFees} per year.
+                      This scholarship covers tuition fees up to $
+                      {scholarship.tuitionFees} per year.
                     </p>
                   </div>
                 )}
 
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Eligibility Criteria</h3>
+                  <h3 className="font-semibold text-lg mb-2">
+                    Eligibility Criteria
+                  </h3>
                   <ul className="list-disc list-inside space-y-2 text-base-content/80">
-                    <li>Must be a high school graduate or currently enrolled in a Bachelor's degree program</li>
+                    <li>
+                      Must be a high school graduate or currently enrolled in a
+                      Bachelor's degree program
+                    </li>
                     <li>Minimum GPA requirement: 3.0</li>
                     <li>English proficiency requirement (IELTS or TOEFL)</li>
                     <li>Valid academic transcripts</li>
@@ -225,7 +267,9 @@ const ScholarshipDetails = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Required Documents</h3>
+                  <h3 className="font-semibold text-lg mb-2">
+                    Required Documents
+                  </h3>
                   <ul className="list-disc list-inside space-y-2 text-base-content/80">
                     <li>Updated Resume/CV</li>
                     <li>Official Transcripts</li>
@@ -251,21 +295,32 @@ const ScholarshipDetails = () => {
                   <div className="card-body">
                     <div className="flex items-center gap-6">
                       <div className="text-center">
-                        <div className="text-5xl font-bold text-primary">{averageRating}</div>
+                        <div className="text-5xl font-bold text-primary">
+                          {averageRating}
+                        </div>
                         <div className="flex gap-1 justify-center my-2">
                           {Array.from({ length: 5 }).map((_, i) => (
                             <FaStar
                               key={i}
-                              className={i < Math.round(averageRating) ? "text-warning" : "text-base-300"}
+                              className={
+                                i < Math.round(averageRating)
+                                  ? "text-warning"
+                                  : "text-base-300"
+                              }
                             />
                           ))}
                         </div>
-                        <p className="text-sm text-base-content/70">Based on {reviews.length} reviews</p>
+                        <p className="text-sm text-base-content/70">
+                          Based on {reviews.length} reviews
+                        </p>
                       </div>
                       <div className="flex-1">
-                        <p className="text-lg font-semibold mb-4">Student Reviews</p>
+                        <p className="text-lg font-semibold mb-4">
+                          Student Reviews
+                        </p>
                         <p className="text-base-content/70">
-                          Read authentic reviews from students who have applied to this scholarship.
+                          Read authentic reviews from students who have applied
+                          to this scholarship.
                         </p>
                       </div>
                     </div>
@@ -277,15 +332,22 @@ const ScholarshipDetails = () => {
               <div className="space-y-4">
                 {reviews.length === 0 ? (
                   <div className="alert alert-info">
-                    <span>No reviews yet. Be the first to review this scholarship!</span>
+                    <span>
+                      No reviews yet. Be the first to review this scholarship!
+                    </span>
                   </div>
                 ) : (
                   reviews.map((review) => (
-                    <div key={review._id} className="card bg-base-100 shadow border border-base-300">
+                    <div
+                      key={review._id}
+                      className="card bg-base-100 shadow border border-base-300"
+                    >
                       <div className="card-body">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-semibold text-lg">{review.userName}</h3>
+                            <h3 className="font-semibold text-lg">
+                              {review.userName}
+                            </h3>
                             <p className="text-sm text-base-content/70">
                               {new Date(review.reviewDate).toLocaleDateString()}
                             </p>
@@ -295,13 +357,17 @@ const ScholarshipDetails = () => {
                               <FaStar
                                 key={i}
                                 className={
-                                  i < review.ratingPoint ? "text-warning" : "text-base-300"
+                                  i < review.ratingPoint
+                                    ? "text-warning"
+                                    : "text-base-300"
                                 }
                               />
                             ))}
                           </div>
                         </div>
-                        <p className="mt-3 text-base-content/80">{review.reviewComment}</p>
+                        <p className="mt-3 text-base-content/80">
+                          {review.reviewComment}
+                        </p>
                       </div>
                     </div>
                   ))

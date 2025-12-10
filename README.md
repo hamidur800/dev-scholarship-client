@@ -7,6 +7,7 @@
 ### Purpose
 
 To simplify the complex process of finding financial aid for education by providing:
+
 - A centralized platform for scholarship discovery
 - Streamlined application review process
 - Real-time application status tracking
@@ -21,6 +22,7 @@ To simplify the complex process of finding financial aid for education by provid
 ## Key Features
 
 ### For Students
+
 - 🔐 Secure authentication with Google login
 - 🔍 Advanced search and filter scholarships
 - 📱 Browse scholarships with detailed information
@@ -30,12 +32,14 @@ To simplify the complex process of finding financial aid for education by provid
 - 📋 Personal dashboard with application history
 
 ### For Moderators
+
 - 📋 Review student applications
 - ✏️ Provide feedback on applications
 - 📊 Update application status
 - 💬 Manage student reviews
 
 ### For Admins
+
 - ➕ Add and manage scholarships
 - 👥 Manage user roles and permissions
 - 📈 View platform analytics and statistics
@@ -45,6 +49,7 @@ To simplify the complex process of finding financial aid for education by provid
 ## Technology Stack
 
 ### Frontend
+
 - **React** - UI library
 - **Vite** - Build tool and dev server
 - **TailwindCSS** - Utility-first CSS framework
@@ -57,6 +62,7 @@ To simplify the complex process of finding financial aid for education by provid
 - **React Icons** - Icon library
 
 ### Backend (To be implemented)
+
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
 - **MongoDB** - Database
@@ -64,12 +70,14 @@ To simplify the complex process of finding financial aid for education by provid
 - **Stripe** - Payment processing
 
 ### Authentication & Services
+
 - **Firebase** - Authentication service (securely configured with env variables)
 - **Stripe** - Payment processing
 
 ## Installation & Setup
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn
 - Firebase account
@@ -78,22 +86,26 @@ To simplify the complex process of finding financial aid for education by provid
 ### Client Setup
 
 1. **Clone the repository**
+
 ```bash
 git clone <repository-url>
 cd dev-scholarship-client
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Create environment variables**
+
 ```bash
 cp .env.local.example .env.local
 ```
 
 4. **Configure .env.local with your credentials**
+
 ```
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
@@ -106,6 +118,7 @@ VITE_API_BASE_URL=http://localhost:5000
 ```
 
 5. **Start the development server**
+
 ```bash
 npm run dev
 ```
@@ -145,6 +158,7 @@ src/
 ## Database Schema
 
 ### Users Collection
+
 ```javascript
 {
   _id: ObjectId,
@@ -158,6 +172,7 @@ src/
 ```
 
 ### Scholarships Collection
+
 ```javascript
 {
   _id: ObjectId,
@@ -181,6 +196,7 @@ src/
 ```
 
 ### Applications Collection
+
 ```javascript
 {
   _id: ObjectId,
@@ -201,6 +217,7 @@ src/
 ```
 
 ### Reviews Collection
+
 ```javascript
 {
   _id: ObjectId,
@@ -218,12 +235,14 @@ src/
 ## Authentication
 
 ### Secure Configuration
+
 - All sensitive keys stored in environment variables
 - Firebase configuration exposed only through environment variables
 - JWT tokens handled securely with HTTP-only cookies (to be implemented on backend)
 - Protected routes using custom middleware
 
 ### Features
+
 - Email/Password registration with validation
 - Password requirements: min 6 chars, 1 uppercase, 1 special character
 - Google OAuth integration
@@ -233,6 +252,7 @@ src/
 ## API Endpoints (To be implemented)
 
 ### Scholarships
+
 - `GET /api/scholarships` - Get all scholarships with pagination
 - `GET /api/scholarships/:id` - Get scholarship details
 - `POST /api/scholarships` - Create scholarship (Admin only)
@@ -240,24 +260,28 @@ src/
 - `DELETE /api/scholarships/:id` - Delete scholarship (Admin only)
 
 ### Applications
+
 - `GET /api/applications` - Get all applications (Moderator/Admin)
 - `GET /api/applications/my-applications` - Get user's applications
 - `POST /api/applications` - Create application
 - `PUT /api/applications/:id` - Update application status
 
 ### Reviews
+
 - `GET /api/reviews/scholarship/:id` - Get reviews for scholarship
 - `POST /api/reviews` - Create review
 - `PUT /api/reviews/:id` - Update review
 - `DELETE /api/reviews/:id` - Delete review
 
 ### Users
+
 - `GET /api/users` - Get all users (Admin only)
 - `PUT /api/users/:id/role` - Change user role (Admin only)
 
 ## Payment Integration
 
 ### Stripe
+
 - Integration for secure payment processing
 - Payment intent creation
 - Success/Failure handling
@@ -266,6 +290,7 @@ src/
 ## Responsive Design
 
 The application is fully responsive and optimized for:
+
 - ✅ Mobile devices (320px and up)
 - ✅ Tablets (768px and up)
 - ✅ Desktops (1024px and up)
@@ -283,6 +308,7 @@ The application is fully responsive and optimized for:
 ## Git Commits
 
 The project follows these commit conventions:
+
 - Feature commits: `feat: Add [feature name]`
 - Fix commits: `fix: Resolve [issue]`
 - Refactor commits: `refactor: [description]`
@@ -294,17 +320,20 @@ Total commits: 20+ meaningful commits on client side
 ## Deployment
 
 ### Client Deployment (Vercel/Netlify)
+
 1. Update `.env.local` with production URLs
 2. Add domain to Firebase authorized domains
 3. Deploy using platform's CLI or GitHub integration
 
 ### Server Deployment (Heroku/Vercel)
+
 1. Set environment variables in deployment platform
 2. Deploy using platform's deployment mechanism
 
 ## Troubleshooting
 
 ### Common Issues
+
 1. **CORS Errors**: Check server CORS configuration
 2. **Firebase Auth Errors**: Verify Firebase credentials in .env.local
 3. **Stripe Errors**: Ensure public key is correct and test mode/live mode matches
@@ -320,6 +349,7 @@ This project is part of Programming Hero Assignment 11.
 ## Support
 
 For issues and questions, please contact:
+
 - Email: support@scholarstream.com
 - Phone: +1 (555) 123-4567
 - Location: 123 Education St, Knowledge City

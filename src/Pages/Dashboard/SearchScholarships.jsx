@@ -16,7 +16,9 @@ const SearchScholarships = () => {
 
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/scholarships?search=${searchQuery}`
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/scholarships?search=${searchQuery}`
       );
       setResults(response.data.data || []);
     } catch (error) {
@@ -156,9 +158,13 @@ const SearchScholarships = () => {
           <h3 className="card-title text-info text-lg">Search Tips</h3>
           <ul className="list-disc list-inside space-y-2 text-sm">
             <li>Search by scholarship name for specific programs</li>
-            <li>Use university names to find all scholarships from that university</li>
+            <li>
+              Use university names to find all scholarships from that university
+            </li>
             <li>Search by country code (e.g., "USA", "UK", "Canada")</li>
-            <li>Try degree level searches (e.g., "Bachelor", "Masters", "PhD")</li>
+            <li>
+              Try degree level searches (e.g., "Bachelor", "Masters", "PhD")
+            </li>
           </ul>
         </div>
       </motion.div>

@@ -116,7 +116,11 @@ const MyApplications = () => {
                       <td className="font-semibold">{app.universityName}</td>
                       <td className="line-clamp-1">{app.scholarshipName}</td>
                       <td>
-                        <div className={`badge ${getStatusBadgeColor(app.applicationStatus)}`}>
+                        <div
+                          className={`badge ${getStatusBadgeColor(
+                            app.applicationStatus
+                          )}`}
+                        >
                           {app.applicationStatus}
                         </div>
                       </td>
@@ -190,21 +194,29 @@ const MyApplications = () => {
                 className="card w-full max-w-2xl bg-base-100"
               >
                 <div className="card-body">
-                  <h2 className="card-title text-2xl mb-4">Application Details</h2>
+                  <h2 className="card-title text-2xl mb-4">
+                    Application Details
+                  </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Left Column */}
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm text-base-content/70">University</p>
+                        <p className="text-sm text-base-content/70">
+                          University
+                        </p>
                         <p className="font-semibold text-lg">
                           {selectedApp.universityName}
                         </p>
                       </div>
 
                       <div>
-                        <p className="text-sm text-base-content/70">Scholarship</p>
-                        <p className="font-semibold">{selectedApp.scholarshipName}</p>
+                        <p className="text-sm text-base-content/70">
+                          Scholarship
+                        </p>
+                        <p className="font-semibold">
+                          {selectedApp.scholarshipName}
+                        </p>
                       </div>
 
                       <div>
@@ -236,7 +248,9 @@ const MyApplications = () => {
                       </div>
 
                       <div>
-                        <p className="text-sm text-base-content/70">Payment Status</p>
+                        <p className="text-sm text-base-content/70">
+                          Payment Status
+                        </p>
                         <div
                           className={`badge badge-lg ${
                             selectedApp.paymentStatus === "paid"
@@ -253,14 +267,22 @@ const MyApplications = () => {
                           Application Date
                         </p>
                         <p className="font-semibold">
-                          {new Date(selectedApp.applicationDate).toLocaleString()}
+                          {new Date(
+                            selectedApp.applicationDate
+                          ).toLocaleString()}
                         </p>
                       </div>
 
                       <div>
-                        <p className="text-sm text-base-content/70">Total Amount</p>
+                        <p className="text-sm text-base-content/70">
+                          Total Amount
+                        </p>
                         <p className="font-semibold text-lg text-primary">
-                          ${(selectedApp.applicationFees + selectedApp.serviceCharge).toFixed(2)}
+                          $
+                          {(
+                            selectedApp.applicationFees +
+                            selectedApp.serviceCharge
+                          ).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -270,7 +292,9 @@ const MyApplications = () => {
                     <>
                       <div className="divider"></div>
                       <div>
-                        <p className="text-sm text-base-content/70 mb-2">Feedback</p>
+                        <p className="text-sm text-base-content/70 mb-2">
+                          Feedback
+                        </p>
                         <div className="bg-base-200 p-4 rounded-lg">
                           <p>{selectedApp.feedback}</p>
                         </div>

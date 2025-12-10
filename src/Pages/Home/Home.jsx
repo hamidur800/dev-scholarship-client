@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { FaSearch, FaStar, FaQuoteLeft, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaSearch,
+  FaStar,
+  FaQuoteLeft,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Home = () => {
   const [scholarships, setScholarships] = useState([]);
@@ -17,7 +24,9 @@ const Home = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/api/scholarships?limit=6&sort=applicationFees:asc`
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/scholarships?limit=6&sort=applicationFees:asc`
       );
       setScholarships(response.data.data || []);
     } catch (error) {
@@ -70,7 +79,8 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl md:text-2xl opacity-90"
           >
-            Connect with life-changing scholarship opportunities and achieve your educational dreams
+            Connect with life-changing scholarship opportunities and achieve
+            your educational dreams
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -78,7 +88,10 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex gap-4 justify-center flex-col sm:flex-row"
           >
-            <Link to="/all-scholarships" className="btn btn-lg btn-secondary gap-2">
+            <Link
+              to="/all-scholarships"
+              className="btn btn-lg btn-secondary gap-2"
+            >
               <FaSearch /> Search Scholarships
             </Link>
           </motion.div>
@@ -95,7 +108,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Top Scholarship Opportunities</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Top Scholarship Opportunities
+            </h2>
             <p className="text-xl text-base-content/70">
               Discover the most accessible and rewarding scholarships
             </p>
@@ -121,7 +136,10 @@ const Home = () => {
                 >
                   <figure className="px-4 pt-4">
                     <img
-                      src={scholarship.universityImage || "https://via.placeholder.com/400x250"}
+                      src={
+                        scholarship.universityImage ||
+                        "https://via.placeholder.com/400x250"
+                      }
                       alt={scholarship.universityName}
                       className="rounded-lg h-48 w-full object-cover"
                     />
@@ -131,7 +149,8 @@ const Home = () => {
                       {scholarship.scholarshipName}
                     </h3>
                     <p className="text-sm text-base-content/70">
-                      {scholarship.universityName}, {scholarship.universityCountry}
+                      {scholarship.universityName},{" "}
+                      {scholarship.universityCountry}
                     </p>
                     <div className="flex justify-between text-sm my-2">
                       <span className="badge badge-primary">
@@ -196,19 +215,22 @@ const Home = () => {
               {
                 name: "Sarah Ahmed",
                 university: "Oxford University",
-                story: "With the help of this platform, I found a full scholarship to Oxford. It changed my life and opened doors I never thought possible.",
+                story:
+                  "With the help of this platform, I found a full scholarship to Oxford. It changed my life and opened doors I never thought possible.",
                 rating: 5,
               },
               {
                 name: "James Wilson",
                 university: "MIT",
-                story: "The comprehensive scholarship database helped me secure a partial scholarship at MIT. The process was smooth and transparent.",
+                story:
+                  "The comprehensive scholarship database helped me secure a partial scholarship at MIT. The process was smooth and transparent.",
                 rating: 5,
               },
               {
                 name: "Emma Thompson",
                 university: "Cambridge University",
-                story: "I found my perfect scholarship match within weeks. The platform's search feature is incredibly powerful and user-friendly.",
+                story:
+                  "I found my perfect scholarship match within weeks. The platform's search feature is incredibly powerful and user-friendly.",
                 rating: 5,
               },
             ].map((testimonial, idx) => (
@@ -227,7 +249,9 @@ const Home = () => {
                   <p className="mb-4 italic">{testimonial.story}</p>
                   <div className="border-t pt-4">
                     <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-base-content/70">{testimonial.university}</p>
+                    <p className="text-sm text-base-content/70">
+                      {testimonial.university}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -246,7 +270,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
             <p className="text-xl text-base-content/70">
               Get answers to common questions about scholarships
             </p>
@@ -282,8 +308,14 @@ const Home = () => {
                 variants={itemVariants}
                 className="collapse collapse-plus bg-base-200"
               >
-                <input type="radio" name="faq-accordion" defaultChecked={idx === 0} />
-                <div className="collapse-title text-xl font-semibold">{faq.q}</div>
+                <input
+                  type="radio"
+                  name="faq-accordion"
+                  defaultChecked={idx === 0}
+                />
+                <div className="collapse-title text-xl font-semibold">
+                  {faq.q}
+                </div>
                 <div className="collapse-content">
                   <p className="text-base-content/80">{faq.a}</p>
                 </div>
@@ -316,17 +348,26 @@ const Home = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            <motion.div variants={itemVariants} className="text-center space-y-3">
+            <motion.div
+              variants={itemVariants}
+              className="text-center space-y-3"
+            >
               <FaPhone className="text-4xl mx-auto" />
               <h3 className="font-semibold text-lg">Phone</h3>
               <p className="opacity-90">+1 (555) 123-4567</p>
             </motion.div>
-            <motion.div variants={itemVariants} className="text-center space-y-3">
+            <motion.div
+              variants={itemVariants}
+              className="text-center space-y-3"
+            >
               <FaEnvelope className="text-4xl mx-auto" />
               <h3 className="font-semibold text-lg">Email</h3>
               <p className="opacity-90">support@scholarstream.com</p>
             </motion.div>
-            <motion.div variants={itemVariants} className="text-center space-y-3">
+            <motion.div
+              variants={itemVariants}
+              className="text-center space-y-3"
+            >
               <FaMapMarkerAlt className="text-4xl mx-auto" />
               <h3 className="font-semibold text-lg">Location</h3>
               <p className="opacity-90">123 Education St, Knowledge City</p>

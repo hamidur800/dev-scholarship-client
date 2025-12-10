@@ -43,12 +43,12 @@ const Register = () => {
     if (!form.name.trim()) newErrors.name = "Name is required";
     if (!form.email.trim()) newErrors.email = "Email is required";
     if (!form.photoURL.trim()) newErrors.photoURL = "Photo URL is required";
-    
+
     const passwordErrors = validatePassword(form.password);
     if (passwordErrors.length > 0) {
       newErrors.password = passwordErrors.join(". ");
     }
-    
+
     if (form.password !== form.confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
     }
@@ -87,7 +87,9 @@ const Register = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary to-primary-focus flex items-center justify-center p-4">
       <div className="card w-full max-w-md shadow-2xl bg-base-100">
         <div className="card-body">
-          <h1 className="card-title text-center text-2xl mb-6">Create Account</h1>
+          <h1 className="card-title text-center text-2xl mb-6">
+            Create Account
+          </h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-control">
@@ -102,7 +104,9 @@ const Register = () => {
                 placeholder="Enter your full name"
                 className="input input-bordered"
               />
-              {errors.name && <span className="text-error text-sm">{errors.name}</span>}
+              {errors.name && (
+                <span className="text-error text-sm">{errors.name}</span>
+              )}
             </div>
 
             <div className="form-control">
@@ -117,7 +121,9 @@ const Register = () => {
                 placeholder="Enter your email"
                 className="input input-bordered"
               />
-              {errors.email && <span className="text-error text-sm">{errors.email}</span>}
+              {errors.email && (
+                <span className="text-error text-sm">{errors.email}</span>
+              )}
             </div>
 
             <div className="form-control">
@@ -132,7 +138,9 @@ const Register = () => {
                 placeholder="Enter photo URL"
                 className="input input-bordered"
               />
-              {errors.photoURL && <span className="text-error text-sm">{errors.photoURL}</span>}
+              {errors.photoURL && (
+                <span className="text-error text-sm">{errors.photoURL}</span>
+              )}
             </div>
 
             <div className="form-control">
@@ -165,7 +173,9 @@ const Register = () => {
                 className="input input-bordered"
               />
               {errors.confirmPassword && (
-                <span className="text-error text-sm">{errors.confirmPassword}</span>
+                <span className="text-error text-sm">
+                  {errors.confirmPassword}
+                </span>
               )}
             </div>
 
@@ -174,7 +184,11 @@ const Register = () => {
               disabled={loading}
               className="btn btn-primary w-full"
             >
-              {loading ? <span className="loading loading-spinner"></span> : "Register"}
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Register"
+              )}
             </button>
           </form>
 

@@ -180,7 +180,9 @@ const EditProfile = () => {
                 maxLength={500}
               ></textarea>
               <label className="label">
-                <span className="label-text-alt">{formData.bio.length} / 500</span>
+                <span className="label-text-alt">
+                  {formData.bio.length} / 500
+                </span>
               </label>
             </div>
 

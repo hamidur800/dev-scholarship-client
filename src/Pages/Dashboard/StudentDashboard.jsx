@@ -30,8 +30,10 @@ const StudentDashboard = () => {
       setStats({
         total: apps.length,
         pending: apps.filter((a) => a.applicationStatus === "pending").length,
-        processing: apps.filter((a) => a.applicationStatus === "processing").length,
-        completed: apps.filter((a) => a.applicationStatus === "completed").length,
+        processing: apps.filter((a) => a.applicationStatus === "processing")
+          .length,
+        completed: apps.filter((a) => a.applicationStatus === "completed")
+          .length,
       });
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -80,7 +82,10 @@ const StudentDashboard = () => {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           ></path>
         </svg>
-        <span>Welcome to your student dashboard! Track your applications and reviews here.</span>
+        <span>
+          Welcome to your student dashboard! Track your applications and reviews
+          here.
+        </span>
       </div>
 
       {/* Stats Cards */}
@@ -94,7 +99,9 @@ const StudentDashboard = () => {
           <div className="card-body">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-base-content/70">Total Applications</p>
+                <p className="text-sm text-base-content/70">
+                  Total Applications
+                </p>
                 <p className="text-3xl font-bold">{stats.total}</p>
               </div>
               <FaFileAlt className="text-4xl text-primary opacity-20" />
@@ -147,10 +154,15 @@ const StudentDashboard = () => {
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
         <motion.div variants={itemVariants}>
-          <Link to="/dashboard/my-applications" className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer">
+          <Link
+            to="/dashboard/my-applications"
+            className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer"
+          >
             <div className="card-body">
               <h2 className="card-title text-lg">View All Applications</h2>
-              <p className="text-base-content/70">Manage and track your scholarship applications</p>
+              <p className="text-base-content/70">
+                Manage and track your scholarship applications
+              </p>
               <div className="card-actions justify-end">
                 <div className="badge badge-primary">Go</div>
               </div>
@@ -159,10 +171,15 @@ const StudentDashboard = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Link to="/dashboard/my-reviews" className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer">
+          <Link
+            to="/dashboard/my-reviews"
+            className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer"
+          >
             <div className="card-body">
               <h2 className="card-title text-lg">View All Reviews</h2>
-              <p className="text-base-content/70">See all your submitted reviews</p>
+              <p className="text-base-content/70">
+                See all your submitted reviews
+              </p>
               <div className="card-actions justify-end">
                 <div className="badge badge-primary">Go</div>
               </div>
@@ -171,10 +188,15 @@ const StudentDashboard = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Link to="/dashboard/add-review" className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer">
+          <Link
+            to="/dashboard/add-review"
+            className="card bg-base-100 shadow hover:shadow-lg transition-shadow cursor-pointer"
+          >
             <div className="card-body">
               <h2 className="card-title text-lg">Write a Review</h2>
-              <p className="text-base-content/70">Share your scholarship experience</p>
+              <p className="text-base-content/70">
+                Share your scholarship experience
+              </p>
               <div className="card-actions justify-end">
                 <div className="badge badge-success">Go</div>
               </div>
@@ -209,24 +231,31 @@ const StudentDashboard = () => {
                       <td>{app.universityName}</td>
                       <td>{app.scholarshipName}</td>
                       <td>
-                        <div className={`badge ${
-                          app.applicationStatus === "completed"
-                            ? "badge-success"
-                            : app.applicationStatus === "processing"
-                            ? "badge-info"
-                            : "badge-warning"
-                        }`}>
+                        <div
+                          className={`badge ${
+                            app.applicationStatus === "completed"
+                              ? "badge-success"
+                              : app.applicationStatus === "processing"
+                              ? "badge-info"
+                              : "badge-warning"
+                          }`}
+                        >
                           {app.applicationStatus}
                         </div>
                       </td>
-                      <td>{new Date(app.applicationDate).toLocaleDateString()}</td>
+                      <td>
+                        {new Date(app.applicationDate).toLocaleDateString()}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <div className="card-actions">
-              <Link to="/dashboard/my-applications" className="link link-primary">
+              <Link
+                to="/dashboard/my-applications"
+                className="link link-primary"
+              >
                 View All →
               </Link>
             </div>

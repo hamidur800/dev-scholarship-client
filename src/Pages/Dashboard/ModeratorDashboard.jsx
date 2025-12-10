@@ -35,9 +35,14 @@ const ModeratorDashboard = () => {
       const reviews = reviewsRes.data.data || [];
 
       setStats({
-        pendingApplications: applications.filter((a) => a.status === "pending").length,
-        processingApplications: applications.filter((a) => a.status === "processing").length,
-        completedApplications: applications.filter((a) => a.status === "completed").length,
+        pendingApplications: applications.filter((a) => a.status === "pending")
+          .length,
+        processingApplications: applications.filter(
+          (a) => a.status === "processing"
+        ).length,
+        completedApplications: applications.filter(
+          (a) => a.status === "completed"
+        ).length,
         totalReviews: reviews.length,
         recentApplications: applications.slice(0, 5),
       });
@@ -98,13 +103,18 @@ const ModeratorDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.pendingApplications}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.pendingApplications}
+                </p>
                 <p className="text-yellow-100">Pending Applications</p>
               </div>
               <FaFileAlt className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-warning my-2"></div>
-            <Link to="/dashboard/manage-applications" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/manage-applications"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               Review →
             </Link>
           </div>
@@ -117,13 +127,18 @@ const ModeratorDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.processingApplications}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.processingApplications}
+                </p>
                 <p className="text-blue-100">Processing Applications</p>
               </div>
               <FaCheckCircle className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-info my-2"></div>
-            <Link to="/dashboard/manage-applications" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/manage-applications"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               Manage →
             </Link>
           </div>
@@ -136,13 +151,18 @@ const ModeratorDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.completedApplications}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.completedApplications}
+                </p>
                 <p className="text-green-100">Completed Applications</p>
               </div>
               <FaCheckCircle className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-success my-2"></div>
-            <Link to="/dashboard/manage-applications" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/manage-applications"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               View All →
             </Link>
           </div>
@@ -155,13 +175,18 @@ const ModeratorDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.totalReviews}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.totalReviews}
+                </p>
                 <p className="text-purple-100">Total Reviews</p>
               </div>
               <FaComments className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-success my-2"></div>
-            <Link to="/dashboard/all-reviews" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/all-reviews"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               Moderate →
             </Link>
           </div>
@@ -236,7 +261,13 @@ const ModeratorDashboard = () => {
                         </span>
                       </td>
                       <td>
-                        <span className={`badge ${app.paymentStatus === "paid" ? "badge-success" : "badge-warning"}`}>
+                        <span
+                          className={`badge ${
+                            app.paymentStatus === "paid"
+                              ? "badge-success"
+                              : "badge-warning"
+                          }`}
+                        >
                           {app.paymentStatus}
                         </span>
                       </td>

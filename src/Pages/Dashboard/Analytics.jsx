@@ -1,7 +1,21 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 
 const Analytics = () => {
   const [stats, setStats] = useState(null);
@@ -14,7 +28,7 @@ const Analytics = () => {
   const fetchAnalytics = async () => {
     try {
       const token = localStorage.getItem("access_token");
-      
+
       // Fetch different data for analytics
       const [usersRes, scholarshipsRes, applicationsRes] = await Promise.all([
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/users`, {
@@ -32,15 +46,20 @@ const Analytics = () => {
       const scholarships = scholarshipsRes.data.data || [];
       const applications = applicationsRes.data.data || [];
 
-      const adminCount = users.filter(u => u.role === "admin").length;
-      const moderatorCount = users.filter(u => u.role === "moderator").length;
-      const studentCount = users.filter(u => u.role === "student").length;
+      const adminCount = users.filter((u) => u.role === "admin").length;
+      const moderatorCount = users.filter((u) => u.role === "moderator").length;
+      const studentCount = users.filter((u) => u.role === "student").length;
 
-      const totalFees = scholarships.reduce((sum, s) => sum + (s.tuitionFees || 0), 0);
+      const totalFees = scholarships.reduce(
+        (sum, s) => sum + (s.tuitionFees || 0),
+        0
+      );
       const totalApplicationFees = applications.length * 50; // Assuming $50 per application
 
       const categoryData = scholarships.reduce((acc, s) => {
-        const existing = acc.find(item => item.category === s.scholarshipCategory);
+        const existing = acc.find(
+          (item) => item.category === s.scholarshipCategory
+        );
         if (existing) {
           existing.count += 1;
         } else {
@@ -50,9 +69,18 @@ const Analytics = () => {
       }, []);
 
       const applicationStatusData = [
-        { status: "Pending", count: applications.filter(a => a.status === "pending").length },
-        { status: "Processing", count: applications.filter(a => a.status === "processing").length },
-        { status: "Completed", count: applications.filter(a => a.status === "completed").length },
+        {
+          status: "Pending",
+          count: applications.filter((a) => a.status === "pending").length,
+        },
+        {
+          status: "Processing",
+          count: applications.filter((a) => a.status === "processing").length,
+        },
+        {
+          status: "Completed",
+          count: applications.filter((a) => a.status === "completed").length,
+        },
       ];
 
       const monthlyData = [
@@ -123,12 +151,36 @@ const Analytics = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
       >
         {[
-          { label: "Total Users", value: stats.totalUsers, icon: "👥", color: "stats-primary" },
-          { label: "Total Scholarships", value: stats.totalScholarships, icon: "🎓", color: "stats-info" },
-          { label: "Total Applications", value: stats.totalApplications, icon: "📋", color: "stats-warning" },
-          { label: "Application Fees", value: `$${stats.totalApplicationFees}`, icon: "💰", color: "stats-success" },
+          {
+            label: "Total Users",
+            value: stats.totalUsers,
+            icon: "👥",
+            color: "stats-primary",
+          },
+          {
+            label: "Total Scholarships",
+            value: stats.totalScholarships,
+            icon: "🎓",
+            color: "stats-info",
+          },
+          {
+            label: "Total Applications",
+            value: stats.totalApplications,
+            icon: "📋",
+            color: "stats-warning",
+          },
+          {
+            label: "Application Fees",
+            value: `$${stats.totalApplicationFees}`,
+            icon: "💰",
+            color: "stats-success",
+          },
         ].map((stat, idx) => (
-          <motion.div key={idx} variants={itemVariants} className={`stats ${stat.color} shadow`}>
+          <motion.div
+            key={idx}
+            variants={itemVariants}
+            className={`stats ${stat.color} shadow`}
+          >
             <div className="stat">
               <div className="stat-figure text-2xl">{stat.icon}</div>
               <div className="stat-title">{stat.label}</div>
@@ -146,13 +198,27 @@ const Analytics = () => {
         className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
       >
         {[
-          { label: "Admins", value: stats.adminCount, color: "bg-error/10 text-error border-error" },
-          { label: "Moderators", value: stats.moderatorCount, color: "bg-warning/10 text-warning border-warning" },
-          { label: "Students", value: stats.studentCount, color: "bg-info/10 text-info border-info" },
+          {
+            label: "Admins",
+            value: stats.adminCount,
+            color: "bg-error/10 text-error border-error",
+          },
+          {
+            label: "Moderators",
+            value: stats.moderatorCount,
+            color: "bg-warning/10 text-warning border-warning",
+          },
+          {
+            label: "Students",
+            value: stats.studentCount,
+            color: "bg-info/10 text-info border-info",
+          },
         ].map((user, idx) => (
           <div key={idx} className={`card ${user.color} border shadow-lg`}>
             <div className="card-body text-center">
-              <h3 className="card-title justify-center text-2xl">{user.value}</h3>
+              <h3 className="card-title justify-center text-2xl">
+                {user.value}
+              </h3>
               <p>{user.label}</p>
             </div>
           </div>
@@ -179,8 +245,20 @@ const Analytics = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="applications" stroke="#3B82F6" strokeWidth={2} name="Applications" />
-              <Line type="monotone" dataKey="users" stroke="#10B981" strokeWidth={2} name="New Users" />
+              <Line
+                type="monotone"
+                dataKey="applications"
+                stroke="#3B82F6"
+                strokeWidth={2}
+                name="Applications"
+              />
+              <Line
+                type="monotone"
+                dataKey="users"
+                stroke="#10B981"
+                strokeWidth={2}
+                name="New Users"
+              />
             </LineChart>
           </ResponsiveContainer>
         </motion.div>
@@ -204,7 +282,10 @@ const Analytics = () => {
                 dataKey="count"
               >
                 {stats.categoryData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />
@@ -217,7 +298,9 @@ const Analytics = () => {
           variants={itemVariants}
           className="card bg-base-100 shadow-xl p-6"
         >
-          <h3 className="text-xl font-bold mb-4">Application Status Distribution</h3>
+          <h3 className="text-xl font-bold mb-4">
+            Application Status Distribution
+          </h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={stats.applicationStatusData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -238,16 +321,25 @@ const Analytics = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
               <span>Total Tuition Fees</span>
-              <span className="text-2xl font-bold text-primary">${(stats.totalFees / 1000).toFixed(1)}k</span>
+              <span className="text-2xl font-bold text-primary">
+                ${(stats.totalFees / 1000).toFixed(1)}k
+              </span>
             </div>
             <div className="flex justify-between items-center p-4 bg-success/10 rounded-lg">
               <span>Application Fees Collected</span>
-              <span className="text-2xl font-bold text-success">${stats.totalApplicationFees}</span>
+              <span className="text-2xl font-bold text-success">
+                ${stats.totalApplicationFees}
+              </span>
             </div>
             <div className="flex justify-between items-center p-4 bg-info/10 rounded-lg">
               <span>Average Application Fee Per Student</span>
               <span className="text-2xl font-bold text-info">
-                ${stats.totalApplications > 0 ? Math.round(stats.totalApplicationFees / stats.totalApplications) : 0}
+                $
+                {stats.totalApplications > 0
+                  ? Math.round(
+                      stats.totalApplicationFees / stats.totalApplications
+                    )
+                  : 0}
               </span>
             </div>
           </div>

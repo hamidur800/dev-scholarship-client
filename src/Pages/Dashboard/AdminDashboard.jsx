@@ -20,7 +20,7 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem("access_token");
-      
+
       const [scholarshipsRes, usersRes, applicationsRes] = await Promise.all([
         axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/scholarships`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -100,13 +100,18 @@ const AdminDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.totalScholarships}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.totalScholarships}
+                </p>
                 <p className="text-blue-100">Total Scholarships</p>
               </div>
               <FaBook className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-success my-2"></div>
-            <Link to="/dashboard/manage-scholarships" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/manage-scholarships"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               View All →
             </Link>
           </div>
@@ -119,13 +124,18 @@ const AdminDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.totalUsers}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.totalUsers}
+                </p>
                 <p className="text-green-100">Total Users</p>
               </div>
               <FaUsers className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-success my-2"></div>
-            <Link to="/dashboard/manage-users" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/manage-users"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               Manage Users →
             </Link>
           </div>
@@ -138,13 +148,18 @@ const AdminDashboard = () => {
           <div className="card-body">
             <div className="flex justify-between items-start">
               <div>
-                <p className="card-title text-4xl font-bold">{stats.totalApplications}</p>
+                <p className="card-title text-4xl font-bold">
+                  {stats.totalApplications}
+                </p>
                 <p className="text-purple-100">Total Applications</p>
               </div>
               <FaChartLine className="text-5xl opacity-20" />
             </div>
             <div className="divider divider-success my-2"></div>
-            <Link to="/dashboard/analytics" className="btn btn-sm btn-ghost text-white hover:bg-white/20">
+            <Link
+              to="/dashboard/analytics"
+              className="btn btn-sm btn-ghost text-white hover:bg-white/20"
+            >
               View Analytics →
             </Link>
           </div>
@@ -199,7 +214,9 @@ const AdminDashboard = () => {
         <div className="card-body">
           <h2 className="card-title text-2xl mb-6">Recent Scholarships</h2>
           {stats.recentScholarships.length === 0 ? (
-            <p className="text-base-content/70">No scholarships yet. Create your first scholarship!</p>
+            <p className="text-base-content/70">
+              No scholarships yet. Create your first scholarship!
+            </p>
           ) : (
             <div className="overflow-x-auto">
               <table className="table table-sm">
@@ -214,7 +231,9 @@ const AdminDashboard = () => {
                 <tbody>
                   {stats.recentScholarships.map((scholarship) => (
                     <tr key={scholarship._id} className="hover">
-                      <td className="font-semibold">{scholarship.scholarshipName}</td>
+                      <td className="font-semibold">
+                        {scholarship.scholarshipName}
+                      </td>
                       <td>{scholarship.universityName}</td>
                       <td>
                         <span className="badge badge-sm badge-primary">
