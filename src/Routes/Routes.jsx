@@ -23,6 +23,7 @@ import ManageApplications from "../Pages/Dashboard/ManageApplications";
 import AllReviews from "../Pages/Dashboard/AllReviews";
 import AddReview from "../Pages/Dashboard/AddReview";
 import EditProfile from "../Pages/Dashboard/EditProfile";
+import SearchScholarships from "../Pages/Dashboard/SearchScholarships";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import ModeratorDashboard from "../Pages/Dashboard/ModeratorDashboard";
 import RoleDashboard from "../Components/RoleDashboard";
@@ -138,6 +139,10 @@ const router = createBrowserRouter([
               path: "/dashboard/edit-profile",
               element: <EditProfile />,
             },
+              {
+                path: "/dashboard/search",
+                element: <SearchScholarships />,
+              },
     ],
   },
 ]);
