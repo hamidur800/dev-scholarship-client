@@ -1,6 +1,7 @@
 import { useAuth } from "../../Context/AuthContext";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaUser, FaEnvelope } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaEdit } from "react-icons/fa";
 
 const DashboardProfile = () => {
   const { user } = useAuth();
@@ -92,9 +93,17 @@ const DashboardProfile = () => {
 
           <div className="divider"></div>
 
-          <p className="text-sm text-base-content/70 text-center">
-            To update your profile information, please contact our support team.
-          </p>
+          <div className="flex justify-between items-center">
+            <p className="text-sm text-base-content/70">
+              Want to update your profile?
+            </p>
+            <Link
+              to="/dashboard/edit-profile"
+              className="btn btn-primary gap-2"
+            >
+              <FaEdit /> Edit Profile
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

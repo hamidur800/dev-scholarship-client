@@ -22,6 +22,7 @@ import Analytics from "../Pages/Dashboard/Analytics";
 import ManageApplications from "../Pages/Dashboard/ManageApplications";
 import AllReviews from "../Pages/Dashboard/AllReviews";
 import AddReview from "../Pages/Dashboard/AddReview";
+import EditProfile from "../Pages/Dashboard/EditProfile";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import ModeratorDashboard from "../Pages/Dashboard/ModeratorDashboard";
 import RoleDashboard from "../Components/RoleDashboard";
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
             path: "/dashboard/add-review",
             element: <AddReview />,
           },
+            {
+              path: "/dashboard/edit-profile",
+              element: <EditProfile />,
+            },
     ],
   },
 ]);
