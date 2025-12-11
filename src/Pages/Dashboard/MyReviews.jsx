@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { reviewApi } from "../../Api/api";
 import toast from "react-hot-toast";
 import { FaEdit, FaTrash, FaStar } from "react-icons/fa";
 

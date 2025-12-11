@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { applicationApi } from "../../Api/api";
 import { FaFileAlt, FaComments, FaClock } from "react-icons/fa";
 
 const StudentDashboard = () => {
