@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useAuth } from "../../Context/AuthContext";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
 
 const EditProfile = () => {
   const { user, setUser } = useAuth();

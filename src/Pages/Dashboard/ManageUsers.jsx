@@ -11,6 +11,31 @@ const ManageUsers = () => {
   const [editingUserId, setEditingUserId] = useState(null);
   const [newRole, setNewRole] = useState("");
 
+  // Mock users used as a fallback when backend is not available (dev convenience)
+  // const mockUsers = [
+  //   {
+  //     _id: "mock-admin-1",
+  //     name: "Hamidur",
+  //     email: "hamidur800t@gmail.com",
+  //     role: "admin",
+  //     verified: true,
+  //   },
+  //   {
+  //     _id: "mock-student-1",
+  //     name: "Student One",
+  //     email: "student1@example.com",
+  //     role: "student",
+  //     verified: false,
+  //   },
+  //   {
+  //     _id: "mock-moderator-1",
+  //     name: "Moderator",
+  //     email: "mod@example.com",
+  //     role: "moderator",
+  //     verified: true,
+  //   },
+  // ];
+
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -30,7 +55,14 @@ const ManageUsers = () => {
       setUsers(response.data.data || []);
     } catch (error) {
       console.error("Error fetching users:", error);
-      toast.error("Failed to load users");
+      // If backend isn't available, fall back to mock users for UI testing
+      if (error?.response?.status === 404 || error.code === "ERR_BAD_REQUEST") {
+        console.warn("Backend /api/users not available — using mock users");
+        setUsers(mockUsers);
+        toast.success("Loaded mock users (backend unavailable)");
+      } else {
+        toast.error("Failed to load users");
+      }
     } finally {
       setLoading(false);
     }

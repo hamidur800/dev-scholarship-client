@@ -1,7 +1,7 @@
-import { useAuth } from "../../Context/AuthContext";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaUser, FaEnvelope, FaEdit } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
 
 const DashboardProfile = () => {
   const { user } = useAuth();

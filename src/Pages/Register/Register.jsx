@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../Context/AuthContext/AuthContext";
 import toast from "react-hot-toast";
 
 const Register = () => {
@@ -14,6 +14,7 @@ const Register = () => {
     photoURL: "",
     password: "",
     confirmPassword: "",
+    role: "student",
   });
 
   const validatePassword = (password) => {
@@ -60,7 +61,14 @@ const Register = () => {
 
     try {
       setLoading(true);
-      await registerUser(form.email, form.password, form.name, form.photoURL);
+      // send role in lowercase to keep normalization consistent
+      await registerUser(
+        form.email,
+        form.password,
+        form.name,
+        form.photoURL,
+        (form.role || "student").toLowerCase()
+      );
       toast.success("Registration successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
@@ -141,6 +149,27 @@ const Register = () => {
               {errors.photoURL && (
                 <span className="text-error text-sm">{errors.photoURL}</span>
               )}
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Role</span>
+              </label>
+              <select
+                name="role"
+                value={form.role}
+                onChange={handleChange}
+                className="select select-bordered"
+              >
+                <option value="student">Student</option>
+                <option value="moderator">Moderator</option>
+                <option value="admin">Admin</option>
+              </select>
+              <label className="label">
+                <span className="label-text-alt text-xs opacity-70">
+                  Choose your role. Admin accounts should be used sparingly.
+                </span>
+              </label>
             </div>
 
             <div className="form-control">

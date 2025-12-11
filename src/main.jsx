@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "./Context/AuthContext";
 import router from "./Routes/Routes";
 import "./index.css";
+import AuthProvider from "./Context/AuthContext/AuthProvider";
 
 const root = document.getElementById("root");
 

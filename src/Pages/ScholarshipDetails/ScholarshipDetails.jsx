@@ -9,8 +9,8 @@ import {
   FaDollarSign,
 } from "react-icons/fa";
 import { reviewApi } from "../../Api/api";
-import { useAuth } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const ScholarshipDetails = () => {
   const { id } = useParams();

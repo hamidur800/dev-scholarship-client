@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { FaCreditCard, FaLock, FaInfoCircle } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
 
 const Checkout = () => {
   const { id } = useParams();

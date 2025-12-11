@@ -1,7 +1,7 @@
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { useEffect } from "react";
-import { useAuth } from "../../Context/AuthContext";
+import useAuth from "../../Hooks/useAuth";
 
 const PaymentSuccess = () => {
   const location = useLocation();

@@ -1,18 +1,17 @@
-import { Link } from "react-router-dom";
-import { useAuth } from "../../../Context/AuthContext";
+import { Link } from "react-router";
 import { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 
 const Header = () => {
-  const { user, logoutUser } = useAuth();
+  const { user, logOut } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-      setDropdownOpen(false);
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const navLinks = (
@@ -79,7 +78,7 @@ const Header = () => {
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                  <a onClick={handleLogout}>Logout</a>
+                  <a onClick={handleLogOut}>Logout</a>
                 </li>
               </ul>
             )}
@@ -122,7 +121,7 @@ const Header = () => {
                   <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li>
-                  <a onClick={handleLogout}>Logout</a>
+                  <a onClick={handleLogOut}>Logout</a>
                 </li>
               </>
             )}

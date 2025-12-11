@@ -1,5 +1,4 @@
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
 import {
   FaHome,
   FaUser,
@@ -13,31 +12,8 @@ import {
   FaSignOutAlt,
   FaBars,
 } from "react-icons/fa";
-import { useState } from "react";
-import toast from "react-hot-toast";
 
 const DashboardLayout = () => {
-  const { user, logoutUser } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const handleLogout = async () => {
-    try {
-      await logoutUser();
-      toast.success("Logged out successfully");
-      navigate("/");
-    } catch (error) {
-      toast.error("Logout failed");
-    }
-  };
-
-  const isAdmin = user?.role?.toLowerCase() === "admin";
-  const isModerator = user?.role?.toLowerCase() === "moderator";
-  const isStudent = user?.role?.toLowerCase() === "student" || !user?.role;
-
-  const isActive = (path) => location.pathname === path;
-
   const adminLinks = [
     { path: "/dashboard", label: "Dashboard Home", icon: <FaHome /> },
     { path: "/dashboard/profile", label: "My Profile", icon: <FaUser /> },

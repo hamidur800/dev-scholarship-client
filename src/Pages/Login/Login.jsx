@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();

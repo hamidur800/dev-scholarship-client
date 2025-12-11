@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useAuth } from "../../Context/AuthContext";
 import { FaStar, FaPlus } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
 
 const AddReview = () => {
   const { user } = useAuth();

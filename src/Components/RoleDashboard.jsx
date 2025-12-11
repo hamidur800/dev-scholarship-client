@@ -1,4 +1,4 @@
-import { useAuth } from "../Context/AuthContext";
+import useAuth from "../Hooks/useAuth";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import ModeratorDashboard from "../Pages/Dashboard/ModeratorDashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard";

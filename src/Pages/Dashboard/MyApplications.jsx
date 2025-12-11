@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { applicationApi } from "../../Api/api";
-import { useAuth } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import { FaEye, FaEdit, FaTrash, FaCreditCard } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
 
 const MyApplications = () => {
   const [applications, setApplications] = useState([]);
